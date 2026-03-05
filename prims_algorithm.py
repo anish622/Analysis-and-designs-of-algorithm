@@ -5,6 +5,8 @@ def prim_mst(graph, V):
     selected[0] = True
     
     print("Edge \tWeight")
+    total_cost = 0   
+    
     for _ in range(V - 1):
         minimum = sys.maxsize
         x = 0
@@ -19,11 +21,12 @@ def prim_mst(graph, V):
                             y = j
                             
         print(f"{x} - {y} \t{graph[x][y]}")
+        total_cost += graph[x][y]   
         selected[y] = True
-        
-        
-        
-# Example usage
+    
+    print(f"\nTotal cost of MST: {total_cost}")
+
+
 graph = [
     [0, 2, 0, 6, 0],
     [2, 0, 3, 8, 5],
@@ -33,4 +36,3 @@ graph = [
 ]
 V = 5
 prim_mst(graph, V)
-                      
